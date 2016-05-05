@@ -1,0 +1,68 @@
+<html>
+ <head>
+ 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script type="text/javascript">
+		$(function () {
+		    $('#container').highcharts({
+		        title: {
+		            text: 'Combination chart'
+		        },
+		        xAxis: {
+		            categories: ['Uganda', 'Kenya', 'Tanzania']
+		        },
+		        labels: {
+		            items: [{
+		                html: 'Total expenditure',
+		                style: {
+		                    left: '150px',
+		                    top: '18px',
+		                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+		                }
+		            }]
+		        },
+		        series: [{
+		            type: 'column',
+		            name: 'StateHouse',
+		            data: [62035611, 24896225, 40000000]
+		        }, {
+		            type: 'column',
+		            name: 'Health',
+		            data: [318484848, 2325286080, 794648000]
+		        }, {
+		            type: 'spline',
+		            name: 'Average',
+		            data: [190000000, 245500000, 215000000],
+		            marker: {
+		                lineWidth: 2,
+		                lineColor: Highcharts.getOptions().colors[3],
+		                fillColor: 'white'
+		            }
+		        }, {
+		            type: 'pie',
+		            name: 'Total expenditure',
+		            data: [{
+		                name: 'StateHouse',
+		                y: 173000000,
+		                color: Highcharts.getOptions().colors[0] // Jane's color
+		            }, {
+		                name: 'Health',
+		                y: 1128000000,
+		                color: Highcharts.getOptions().colors[1] // John's color
+		            }],
+		            center: [100, 80],
+		            size: 100,
+		            showInLegend: false,
+		            dataLabels: {
+		                enabled: false
+		            }
+		        }]
+		    });
+		});
+    </script>
+ </head>
+ <body>
+ 	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+ </body>
+</html>

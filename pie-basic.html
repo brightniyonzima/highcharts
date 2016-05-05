@@ -1,0 +1,67 @@
+<html>
+<head>
+	    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+        <script type="text/javascript">
+            $(function () {
+			    $('#container').highcharts({
+			        chart: {
+			            plotBackgroundColor: null,
+			            plotBorderWidth: null,
+			            plotShadow: false,
+			            type: 'pie'
+			        },
+			        title: {
+			            text: 'Relative population of East Africa as of May 2016'
+			        },
+			        tooltip: {
+			            pointFormat: '{point.y}<b></b>'
+			        },
+			        plotOptions: {
+			            pie: {
+			                allowPointSelect: true,
+			                cursor: 'pointer',
+			                dataLabels: {
+			                    enabled: true,
+			                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+			                    style: {
+			                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+			                    }
+			                },
+			                showInLegend: true
+			            }
+			        },
+			        series: [{
+			            name: 'Countries',
+			            colorByPoint: true,
+			            data: [{
+			                name: 'Uganda',
+			                y: 38728000
+			            }, {
+			                name: 'Kenya',
+			                y: 43000000,
+			                //sliced: true,
+			                //selected: true
+			            }, {
+			                name: 'Tanzania',
+			                y: 46744000
+			            }, {
+			                name: 'Rwanda',
+			                y: 11000000
+			            }, {
+			                name: 'Burundi',
+			                y: 9201000
+			            }, {
+			                name: 'South Sudan',
+			                y: 11384000
+			            }]
+			        }]
+			    });
+			});
+        </script>
+</head>
+<body>
+	<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+</body>
+</html>
